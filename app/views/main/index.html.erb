@@ -1,0 +1,31 @@
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<div class="banner" id="header">
+  <div class="container">
+<table>
+  <tr>
+    <th><i class="fa fa-twitter" aria-hidden="true"></i><%= link_to 'Home', controller: 'main' %></th>
+    <th>About</th>
+    <th id="lang">Language: English</th>
+    <th><% if user_signed_in? %>
+  <li>
+  <%= link_to('Logout', destroy_user_session_path, method: :delete) %>        
+  </li>
+<% else %>
+  <li>
+  <%= link_to('Login', new_user_session_path)  %>  
+  </li>
+<% end %></th>
+  </tr>
+</table>
+<input type="text" name="search" placeholder="Search..">
+</div>
+</div>
+
+
+<p><%= link_to "New tweet", new_tweet_path %></p>
+<div class="container">
+  <% @tweet.each do |tweet| %>
+  <p><%= tweet.title %></p>
+  <p><%= tweet.text %></p>
+  <% end %>
+</div>

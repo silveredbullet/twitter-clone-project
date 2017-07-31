@@ -1,0 +1,17 @@
+<div class="container" id="tb">
+  
+    <%= form_for :tweet, url: main_index_path do |f| %>
+  <p>
+    <%= f.text_field :title %>
+  </p>
+ 
+  <p>
+    <%= f.text_area :text %>
+  </p>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+</div>
+
